@@ -1,0 +1,11 @@
+<%= form_for @item do |form|%>
+	<%= form.label "name"%><br>
+	<%= form.text_field :name %><br>
+	<%= form.label "price"%><br>
+	<%= form.text_field :price %><br>
+	<%#debugger%>
+	<%= form.hidden_field :user_id , value: current_user.id%>
+
+	<%= form.submit%><br>
+
+<% end %>

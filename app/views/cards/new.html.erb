@@ -1,0 +1,12 @@
+<%= form_for @card do |form|%>
+
+	<%= form.label "student_name"%><br>
+	<%= form.text_field :student_name %><br>
+	<%= form.label "age"%><br>
+	<%= form.text_field :age %><br>
+	<%= form.label "amount"%><br>
+	<%= form.text_field :amount %><br>
+	<%#debugger%>
+	<%= form.hidden_field :user_id , value: params[:format]%>
+	<%= form.submit%><br>
+<% end %>

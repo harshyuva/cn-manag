@@ -1,0 +1,9 @@
+<%if current_user.has_role? :admin%>
+<% Card.all.each do |card|%><br>
+<%=card.student_name%>
+<%=card.age %>
+<%=card.amount %>
+<%= link_to "edit" , edit_card_path(card.id)%>
+<%= link_to "delete" ,card_path(card.id),method: :delete %>
+<%end%>
+<%end%>

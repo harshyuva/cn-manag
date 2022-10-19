@@ -1,0 +1,7 @@
+<% Item.all.each do |item|%><br>
+	<strong>name</strong>
+	<%= item.name %>
+	<strong>price</strong>s
+	<%= item.price %>
+	<%= link_to"add to cart",cart_items_path(item.id),method: :post%>
+<%end%></div>

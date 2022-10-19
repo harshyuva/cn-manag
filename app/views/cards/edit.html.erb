@@ -1,0 +1,9 @@
+<%= form_for @card do |form|%>
+	<%= form.label "student_name"%><br>
+	<%= form.text_field :student_name %>
+	<%= form.label "age"%><br>
+	<%= form.text_field :age %>
+	<%= form.label "amount"%><br>
+	<%= form.text_field :amount %>
+	<%= form.submit%><br>
+<% end %>

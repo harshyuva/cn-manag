@@ -1,0 +1,12 @@
+<%= form_for @pay do |form|%>
+<%#debugger%>
+	<%= form.label "quantity" %>
+	<%= form.text_field :quantity%>
+	<%= form.submit %>
+	<%#debugger%>
+	<%= form.hidden_field :item_id , value: params[:format] %>
+	<%= form.hidden_field :card_id , value: current_user.card.id %>
+	<%= form.hidden_field :user_id , value: current_user.id %>
+
+
+<%end%>
