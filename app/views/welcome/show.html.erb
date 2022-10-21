@@ -1,3 +1,4 @@
+<h3>welcome_show</h3>
 <%if current_user.has_role? :admin%>
 <% Card.all.each do |card|%><br>
 <%=card.student_name%>

@@ -1,0 +1,10 @@
+<h3>cart_item_show</h3>
+<% total=0 %>
+<% current_user.cart.CartItem.each do |a|%><br>
+<%= a.name %>
+<%= a.price %>
+<%= link_to "remove",cart_item_path(a.id,cart_id: current_user.cart.id),method: :delete %>
+<% total = total + a.price %>
+<%end%><br>
+total price <%#= total%><%= current_user.cart.all_amount %>
+<%= link_to"pay",pays_path(cart_id: current_user.cart.id,card_id: current_user.card.id,user_id: current_user.id, total: total ),method: :post %>

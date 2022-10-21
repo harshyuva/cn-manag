@@ -1,7 +1,9 @@
+<h3>item_index</h3>
 <% Item.all.each do |item|%><br>
 	<strong>name</strong>
 	<%= item.name %>
 	<strong>price</strong>s
 	<%= item.price %>
-	<%= link_to"add to cart",cart_items_path(item.id),method: :post%>
+	<%= link_to"add to cart",cart_items_path(item.id,card_id: current_user.card.id,cart_id: current_user.cart.id),method: :post%>
+	
 <%end%></div>

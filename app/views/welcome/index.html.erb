@@ -22,6 +22,7 @@
     age: <%= current_user.card.age %><br>
     current amount: <%= current_user.card.amount%><br>
     <%= link_to "menu",item_path(current_user.card.id)%>
+    <%= link_to "view cart", cart_items_path %>
     <%end%>
     <%end%>
     <%end%>

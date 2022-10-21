@@ -4,17 +4,18 @@ class PaysController < ApplicationController
 	end
 	def create
 		#debugger
-			@item = Item.find(params[:pay][:item_id])
-			@card = Card.find(params[:pay][:card_id])
-	if @card.amount >= params[:pay][:quantity].to_i*@item.price.to_i
-			@pay = Pay.create(pay_params)
-			@item = Item.find(params[:pay][:item_id])
-			@card = Card.find(params[:pay][:card_id])
-			abc = current_user.card.amount-params[:pay][:quantity].to_i*@item.price.to_i
+			@card = Card.find(params[:card_id])
+			@cart = Cart.find(params[:cart_id])
+			@user = User.find(params[:user_id])
+	if @card.amount >= @cart.all_amount
+			abc = current_user.card.amount-@cart.all_amount.to_i
 			@card.update(amount: abc)
+		#debugger
+			current_user.cart.CartItem.delete_all
+			@cart.update(all_amount: 0)
 			redirect_to root_path
-	else @card.amount.to_i < params[:pay][:quantity].to_i
-			flash[:alert] = "abbe garib aadmi"
+	else @card.amount.to_i < @cart.all_amount
+			flash[:alert] = "add more amount in your card"
 			redirect_to root_path
 		end
 	end

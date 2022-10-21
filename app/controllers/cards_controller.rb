@@ -26,13 +26,18 @@ class CardsController < ApplicationController
   end
 
   def update
-    @card = Card.find(params[:id])
-
-    if @card.update(card_params)
+    #debugger
+    if params[:card][:amount].present?
+      @card = Card.find(params[:id])
+      @card.amount=@card.amount.to_i+params[:card][:amount].to_i
+      @card.update(amount: @card.amount)
       redirect_to root_path
     else
-      render :edit, status: :unprocessable_entity
+       @card = Card.find(params[:id])
+      @card.update(card_params)
+      redirect_to root_path
     end
+  
   end
 
   def destroy
